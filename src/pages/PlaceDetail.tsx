@@ -1,7 +1,25 @@
 import { useParams, useNavigate } from 'react-router-dom'
-import { ArrowLeft, MapPin, Phone, Clock, Globe, Heart, MessageCircle, Star } from 'lucide-react'
+import { ArrowLeft, MapPin, Phone, Clock, Globe, Heart, MessageCircle, Star, Navigation } from 'lucide-react'
 import { useAdmin } from '../hooks/useAdmin'
 import { useFavorites } from '../hooks/useFavorites'
+
+function getMapsUrl(address: string, name: string) {
+  const query = encodeURIComponent(`${name}, ${address}`)
+  // geo: intent works on Android (opens chooser: Maps, Uber, 99, Waze, etc.)
+  // On iOS/desktop falls back to Google Maps web which also offers app deep links
+  const isAndroid = /android/i.test(navigator.userAgent)
+  const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent)
+
+  if (isAndroid) {
+    return `geo:0,0?q=${query}`
+  }
+  if (isIOS) {
+    // maps: scheme opens Apple Maps with option to switch to other apps
+    return `maps:0,0?q=${query}`
+  }
+  // Desktop / fallback → Google Maps
+  return `https://www.google.com/maps/search/?api=1&query=${query}`
+}
 
 export default function PlaceDetail() {
   const { id } = useParams<{ id: string }>()
@@ -64,10 +82,15 @@ export default function PlaceDetail() {
 
         {/* Info */}
         <div className="space-y-3 mb-6">
-          <div className="flex items-start gap-3">
-            <MapPin size={18} className="text-gray-400 shrink-0 mt-0.5" />
-            <span className="text-sm text-gray-700">{place.address}</span>
-          </div>
+          <a
+            href={getMapsUrl(place.address, place.name)}
+            target="_blank"
+            rel="noopener"
+            className="flex items-start gap-3 no-underline group"
+          >
+            <MapPin size={18} className="text-primary shrink-0 mt-0.5" />
+            <span className="text-sm text-primary font-medium group-hover:underline">{place.address}</span>
+          </a>
           {place.hours && (
             <div className="flex items-start gap-3">
               <Clock size={18} className="text-gray-400 shrink-0 mt-0.5" />
@@ -91,7 +114,7 @@ export default function PlaceDetail() {
         </div>
 
         {/* Action Buttons */}
-        <div className="flex gap-3">
+        <div className="flex gap-3 mb-3">
           {place.phone && (
             <a
               href={`tel:${place.phone}`}
@@ -111,6 +134,16 @@ export default function PlaceDetail() {
             </a>
           )}
         </div>
+
+        {/* Como Chegar Button */}
+        <a
+          href={getMapsUrl(place.address, place.name)}
+          target="_blank"
+          rel="noopener"
+          className="w-full flex items-center justify-center gap-2 bg-amber-500 text-white py-3 rounded-xl font-medium text-sm no-underline hover:bg-amber-600 transition"
+        >
+          <Navigation size={16} /> Como Chegar
+        </a>
       </div>
     </div>
   )

@@ -29,7 +29,18 @@ export default function PlaceCard({ place }: PlaceCardProps) {
         <div className="p-3">
           <h3 className="text-sm font-semibold text-gray-900 mb-1 line-clamp-1">{place.name}</h3>
           <p className="text-xs text-gray-500 line-clamp-2 mb-2">{place.description}</p>
-          <div className="flex items-center gap-1 text-xs text-gray-400">
+          <div
+            className="flex items-center gap-1 text-xs text-primary cursor-pointer hover:underline"
+            onClick={(e) => {
+              e.preventDefault()
+              e.stopPropagation()
+              const query = encodeURIComponent(`${place.name}, ${place.address}`)
+              const isAndroid = /android/i.test(navigator.userAgent)
+              const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent)
+              const url = isAndroid ? `geo:0,0?q=${query}` : isIOS ? `maps:0,0?q=${query}` : `https://www.google.com/maps/search/?api=1&query=${query}`
+              window.open(url, '_blank')
+            }}
+          >
             <MapPin size={12} />
             <span className="truncate">{place.address}</span>
           </div>
