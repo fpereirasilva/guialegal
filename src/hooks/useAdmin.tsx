@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react'
+import { createContext, useContext, useState, useEffect, type ReactNode } from 'react'
 import type { Place, Event } from '../types'
 import { initialPlaces } from '../data/places'
 import { initialEvents } from '../data/events'
