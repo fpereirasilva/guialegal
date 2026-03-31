@@ -9,7 +9,7 @@ export const initialEvents: Event[] = [
     time: '06:00',
     location: 'Basílica e Centro Histórico - Iguape',
     city: 'iguape',
-    image: 'https://placehold.co/600x400/8b5cf6/white?text=Festa+Bom+Jesus',
+    image: 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600&h=400&fit=crop',
     category: 'Festas',
   },
   {
@@ -20,7 +20,7 @@ export const initialEvents: Event[] = [
     time: '10:00',
     location: 'Praça da Basílica - Iguape',
     city: 'iguape',
-    image: 'https://placehold.co/600x400/8b5cf6/white?text=Festival+Caranguejo',
+    image: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&h=400&fit=crop',
     category: 'Feiras',
   },
   {
@@ -31,7 +31,7 @@ export const initialEvents: Event[] = [
     time: '08:00',
     location: 'Praia do Boqueirão - Ilha Comprida',
     city: 'ilha-comprida',
-    image: 'https://placehold.co/600x400/8b5cf6/white?text=Campeonato+Surf',
+    image: 'https://images.unsplash.com/photo-1502680390548-bdbac40e4a9f?w=600&h=400&fit=crop',
     category: 'Esportes',
   },
   {
@@ -42,7 +42,7 @@ export const initialEvents: Event[] = [
     time: '09:00',
     location: 'Praça Central - Ilha Comprida',
     city: 'ilha-comprida',
-    image: 'https://placehold.co/600x400/8b5cf6/white?text=Feira+Artesanato',
+    image: 'https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=600&h=400&fit=crop',
     category: 'Feiras',
   },
   {
@@ -53,7 +53,7 @@ export const initialEvents: Event[] = [
     time: '20:00',
     location: 'Quiosque da Praia do Boqueirão - Ilha Comprida',
     city: 'ilha-comprida',
-    image: 'https://placehold.co/600x400/8b5cf6/white?text=Forr%C3%B3+na+Praia',
+    image: 'https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?w=600&h=400&fit=crop',
     category: 'Shows',
   },
   {
@@ -64,7 +64,7 @@ export const initialEvents: Event[] = [
     time: '09:00',
     location: 'Centro Cultural - Iguape',
     city: 'iguape',
-    image: 'https://placehold.co/600x400/8b5cf6/white?text=Meio+Ambiente',
+    image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&h=400&fit=crop',
     category: 'Cultura',
   },
 ]
