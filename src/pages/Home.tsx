@@ -4,6 +4,7 @@ import { Sparkles, ArrowRight } from 'lucide-react'
 import SearchBar from '../components/SearchBar'
 import CategoryCard from '../components/CategoryCard'
 import PlaceCard from '../components/PlaceCard'
+import AdBanner from '../components/AdBanner'
 import { useCity } from '../hooks/useCity'
 import { useAdmin } from '../hooks/useAdmin'
 import { categories } from '../data/categories'
@@ -80,6 +81,16 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      {/* Ad Banner (exemplo) */}
+      <AdBanner
+        advertiser="Restaurante Sabor Caiçara"
+        title="Camarão na moranga com vista para o mar"
+        description="10% de desconto para clientes do Guia Digital"
+        image="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Nascer_do_sol_em_Ilha_Comprida-Sp.JPG/960px-Nascer_do_sol_em_Ilha_Comprida-Sp.JPG"
+        href="https://wa.me/5513999999999"
+        cta="Ver cardápio"
+      />
 
       {/* Highlights */}
       {highlightPlaces.length > 0 && (
