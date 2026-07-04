@@ -1,7 +1,9 @@
 import { useMemo } from 'react'
 import { Calendar, MapPin, Clock } from 'lucide-react'
+import AdBanner from '../components/AdBanner'
 import { useCity } from '../hooks/useCity'
 import { useAdmin } from '../hooks/useAdmin'
+import { eventsAds } from '../data/ads'
 
 export default function Events() {
   const { city } = useCity()
@@ -21,6 +23,8 @@ export default function Events() {
     <div>
       <h2 className="text-lg font-bold text-gray-900 mb-1">Eventos e Cultura</h2>
       <p className="text-xs text-gray-500 mb-4">Agenda de eventos da cidade</p>
+
+      <AdBanner ads={eventsAds} />
 
       {upcoming.length > 0 && (
         <section className="mb-6">
