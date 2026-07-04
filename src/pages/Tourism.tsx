@@ -1,9 +1,11 @@
 import { useState, useMemo } from 'react'
 import SearchBar from '../components/SearchBar'
 import PlaceCard from '../components/PlaceCard'
+import AdBanner from '../components/AdBanner'
 import { useCity } from '../hooks/useCity'
 import { useAdmin } from '../hooks/useAdmin'
 import { categories } from '../data/categories'
+import { tourismAds } from '../data/ads'
 
 export default function Tourism() {
   const { city } = useCity()
@@ -50,6 +52,8 @@ export default function Tourism() {
           </button>
         ))}
       </div>
+
+      <AdBanner ads={tourismAds} />
 
       {filtered.length === 0 ? (
         <div className="text-center py-12 text-gray-400">
