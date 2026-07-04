@@ -8,6 +8,7 @@ import AdBanner from '../components/AdBanner'
 import { useCity } from '../hooks/useCity'
 import { useAdmin } from '../hooks/useAdmin'
 import { categories } from '../data/categories'
+import { sampleAds } from '../data/ads'
 
 export default function Home() {
   const { city, cityName } = useCity()
@@ -83,14 +84,8 @@ export default function Home() {
       </section>
 
       {/* Ad Banner (exemplo) */}
-      <AdBanner
-        advertiser="Restaurante Sabor Caiçara"
-        title="Camarão na moranga com vista para o mar"
-        description="10% de desconto para clientes do Guia Digital"
-        image="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Nascer_do_sol_em_Ilha_Comprida-Sp.JPG/960px-Nascer_do_sol_em_Ilha_Comprida-Sp.JPG"
-        href="https://wa.me/5513999999999"
-        cta="Ver cardápio"
-      />
+      {/* Ad Banner (carrossel, exemplo) */}
+      <AdBanner ads={sampleAds} />
 
       {/* Highlights */}
       {highlightPlaces.length > 0 && (
