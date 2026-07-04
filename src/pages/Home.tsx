@@ -8,7 +8,7 @@ import AdBanner from '../components/AdBanner'
 import { useCity } from '../hooks/useCity'
 import { useAdmin } from '../hooks/useAdmin'
 import { categories } from '../data/categories'
-import { sampleAds } from '../data/ads'
+import { homeAds, tourismAds } from '../data/ads'
 
 export default function Home() {
   const { city, cityName } = useCity()
@@ -83,9 +83,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Ad Banner (exemplo) */}
       {/* Ad Banner (carrossel, exemplo) */}
-      <AdBanner ads={sampleAds} />
+      <AdBanner ads={homeAds} />
 
       {/* Highlights */}
       {highlightPlaces.length > 0 && (
@@ -95,6 +94,7 @@ export default function Home() {
               <Sparkles size={16} className="text-amber-500" /> Destaques
             </h2>
           </div>
+          <AdBanner ads={tourismAds} autoPlayMs={6000} />
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {highlightPlaces.map(p => <PlaceCard key={p.id} place={p} />)}
           </div>
